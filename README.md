@@ -86,8 +86,10 @@ Alternatively, checkpoint files can be found here, \ https://github.com/tensorfl
 And more configuration files can be found here, \ https://github.com/tensorflow/models/tree/master/research/object_detection/samples/configs
 
 In the configuration file, fix all the path_to_be_cofigured \
-Class number should be 1 \ 
-fine_tune_checkpoint: "ssd_mobilenet_v1_coco_11_06_2017/model.ckpt
+num_classes to 1 \ 
+num_examples to 15 \
+fine_tune_checkpoint: "ssd_mobilenet_v1_coco_11_06_2017/model.ckpt \
+label_map_path: "data/object-detect.pbtxt
 
 train_input_reader: \
 input_path: data/xxx_train.record \
@@ -107,3 +109,7 @@ added files are: \
 
 From models/object_detection, run (train_dir is where all the output will go) \
 python train.py --logtostderr --train_dir=training/ --pipline_config_path=training/ssd_mobilenet_v1_pets.config
+
+To check learning rate using TensorBoard: \
+From models/object_detection: \
+tensorboard --logdir='training'
