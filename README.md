@@ -7,7 +7,9 @@ To Do List:
 3. ORGANIZE!
 
 To activate tf:
-source ~/tensorflow/bin/activate
+source ~/tensorflow/bin/activate \
+or \
+source activate tensorflow
 
 ###instruction found in models/research/object_detection/g3doc/installation.md###
 
