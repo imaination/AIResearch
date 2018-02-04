@@ -80,7 +80,7 @@ The benefit of transfer learning is that the process is faster with less data re
 Need checkpoint and configuration files. 
 
 wget https://raw.githubusercontent.com/tensorflow/models/master/research/object_detection/samples/configs/ssd_mobilenet_v1_pets.config \
-wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_11_06_2017.tar.gz \
+wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_11_06_2017.tar.gz 
 
 Alternatively, checkpoint files can be found here, \ https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md \
 And more configuration files can be found here, \ https://github.com/tensorflow/models/tree/master/research/object_detection/samples/configs
