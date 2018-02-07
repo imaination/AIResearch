@@ -42,7 +42,7 @@ sudo make install
 
 Run below commands in the directory, models/research: \
 protoc object_detection/protos/*.proto --python_out=. \
-export PYTHONPATH=$PYTHONPATH:``pwd``:``pwd``/slim
+export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim #(with back slashes around pwd)
 
 From models/research, run: \
 sudo python setup.py install #this formally installs the object_detection library 
