@@ -4,32 +4,32 @@ Object detection using TensorFlow API
 
 STEP 1. Installation (after installation of python 2.7)
 
-pip install pillow \
-pip install lxml \
-pip install jupyter \
-pip install matplotlib \
+$ pip install pillow \
+$ pip install lxml \
+$ pip install jupyter \
+$ pip install matplotlib 
 
 Officail Installation Site: https://www.tensorflow.org/install/install_mac#the_url_of_the_tensorflow_python_package \
 Installing Tensorflow with Anaconda:\
-conda create -n tensorflow pip python=2.7 #or python=3.3, etc.
-source activate tensorflow
-pip install --ignore-installed --upgrade  https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.5.0-py2-none-any.whl 
+$ conda create -n tensorflow pip python=2.7 #or python=3.3, etc.
+$source activate tensorflow
+$ pip install --ignore-installed --upgrade  https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.5.0-py2-none-any.whl 
 
-source deactivate #to deactivate virtual env
+$source deactivate #to deactivate virtual env
 
 STEP 2. 
 Install the TensorFlow model through git: \
-git clone https://github.com/tensorflow/models.git
+$ git clone https://github.com/tensorflow/models.git
 
 Check to see if you have protoc. \
-protoc --version:
+$protoc --version:
 
 Run below commands in the directory, models/research: \
-protoc object_detection/protos/*.proto --python_out=. \
-export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim #(with back slashes around pwd)
+$protoc object_detection/protos/*.proto --python_out=. \
+$ export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim #(with back slashes around pwd)
 
 From models/research, run: \
-sudo python setup.py install #this formally installs the object_detection library 
+$ sudo python setup.py install #this formally installs the object_detection library 
      
 Step 3. Check if installation is complete. \
 
@@ -58,15 +58,15 @@ Follow the sample code found in models/research/object_detection/g3doc/using_you
 
 After creating create_monkey_tf_record.py file, and running it, there should be a train.record and test.record under \ research/object_detection/data/ file. \
 Run the file (create_monkey_tf_record.py) by, \
-python create_monkey_tf_record.py 
+$ python create_monkey_tf_record.py 
 
 Step 5. Using a pre-trained model (transfer learning)
 
 The benefit of transfer learning is that the process is faster with less data required to train.
 Need checkpoint and configuration files. 
 
-wget https://raw.githubusercontent.com/tensorflow/models/master/research/object_detection/samples/configs/ssd_mobilenet_v1_pets.config \
-wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_11_06_2017.tar.gz 
+$ wget https://raw.githubusercontent.com/tensorflow/models/master/research/object_detection/samples/configs/ssd_mobilenet_v1_pets.config \
+$ wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_11_06_2017.tar.gz 
 
 Alternatively, checkpoint files can be found here, \ https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md \
 And more configuration files can be found here, \ https://github.com/tensorflow/models/tree/master/research/object_detection/samples/configs
@@ -94,11 +94,11 @@ added files are: \
     5. ssd_mobilenet_v1_pets.config [file] (training/)
 
 From models/object_detection, run (train_dir is where all the output will go) \
-python train.py --logtostderr --train_dir=training/ --pipline_config_path=training/ssd_mobilenet_v1_pets.config
+$ python train.py --logtostderr --train_dir=training/ --pipline_config_path=training/ssd_mobilenet_v1_pets.config
 
 To check learning rate using TensorBoard: \
 From models/object_detection: \
-tensorboard --logdir='training'
+$ tensorboard --logdir='training'
 
 References:
 https://pythonprogramming.net/introduction-use-tensorflow-object-detection-api-tutorial/
