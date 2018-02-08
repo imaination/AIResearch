@@ -1,44 +1,28 @@
 # AIResearch
 Object detection using TensorFlow API
 
-To Do List:
-1. make a script file to download all necessary packages (python, jupyternotebook, etc.)
-2. Follow the tutorial (https://pythonprogramming.net/introduction-use-tensorflow-object-detection-api-tutorial/).
-3. ORGANIZE!
 
-To activate tf:
-source ~/tensorflow/bin/activate \
-or \
-source activate tensorflow
-
-###instruction found in models/research/object_detection/g3doc/installation.md###
-
-Step 1. Installation (after installation of python 2.7)
+STEP 1. Installation (after installation of python 2.7)
 
 pip install pillow \
 pip install lxml \
 pip install jupyter \
 pip install matplotlib \
-pip install tensorflow 
 
-Or to install tensorflow: \ 
-conda create -n tensorflow pip python=2.7 # or python=3.3, etc. \
-source activate tensorflow \
-source deactivate 
+Officail Installation Site: https://www.tensorflow.org/install/install_mac#the_url_of_the_tensorflow_python_package \
+Installing Tensorflow with Anaconda:\
+conda create -n tensorflow pip python=2.7 #or python=3.3, etc.
+source activate tensorflow
+pip install --ignore-installed --upgrade  https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.5.0-py2-none-any.whl 
 
-To install the TensorFlow model through git: \
+source deactivate #to deactivate virtual env
+
+STEP 2. 
+Install the TensorFlow model through git: \
 git clone https://github.com/tensorflow/models.git
 
-Install protoc if you don't have it already. \
-To check if you have, run  \
+Check to see if you have protoc. \
 protoc --version:
-
-(https://github.com/google/protobuf/releases) \
-After installing protobuf, run: \
-sudo ./configure \
-sudo make check \
-sudo make install
-    
 
 Run below commands in the directory, models/research: \
 protoc object_detection/protos/*.proto --python_out=. \
@@ -47,12 +31,12 @@ export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim #(with back slashes around pwd)
 From models/research, run: \
 sudo python setup.py install #this formally installs the object_detection library 
      
-Step 2. Check if installation is complete \
+Step 3. Check if installation is complete. \
 
 Go to models/research/object_detection and open jupyter notebook. \
 Run all object_detection_tutorial.ipynb, you should get a pic of dogs, people, and kites with boxes. \
     
-Step 3. Set up image files, xxx_label_map.pbtxt, and create_xxx_tf_record.py 
+Step 4. Set up image files, xxx_label_map.pbtxt, and create_xxx_tf_record.py 
 
 Instruction found in models/research/object_detection/g3doc/using_your_own_dataset.md
 
@@ -76,7 +60,7 @@ After creating create_monkey_tf_record.py file, and running it, there should be 
 Run the file (create_monkey_tf_record.py) by, \
 python create_monkey_tf_record.py 
 
-Step 4. Using a pre-trained model (transfer learning)
+Step 5. Using a pre-trained model (transfer learning)
 
 The benefit of transfer learning is that the process is faster with less data required to train.
 Need checkpoint and configuration files. 
@@ -115,3 +99,6 @@ python train.py --logtostderr --train_dir=training/ --pipline_config_path=traini
 To check learning rate using TensorBoard: \
 From models/object_detection: \
 tensorboard --logdir='training'
+
+References:
+https://pythonprogramming.net/introduction-use-tensorflow-object-detection-api-tutorial/
