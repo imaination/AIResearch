@@ -100,6 +100,51 @@ To check learning rate using TensorBoard: \
 From models/object_detection: \
 $ tensorboard --logdir='training'
 
+STEP 6.
+Testing Our Model:
+Once the Lossgraph is well under 2, quit learning.
+
+Export Graph:
+From models/object_detection \
+$python export_inference_graph.py \
+    --input_type image_tensor \
+    --pipeline_config_path training/ssd_mobilenet_v1_pets.config \
+    --trained_checkpoint_prefix training/model.ckpt-10856 \
+    --output_directory xxx_inference_graph
+    
+Checkpoint files should be in the training directory. \
+For --trained_checkpoint_prefix training/model.ckpt-10856 \ choose the model w/ largest step (the largest number after the dash)
+
+In the object_detection directory, there should be a new directory, xxx_inference_graph. \
+xxx_inference_graph should include:
+     1. new checkpoint data
+     2. a saved_model directory
+     3. forzen_inference_graph.pb 
+
+Copy images to test into models/object_detection/test_images directory. \
+Renamed those pictures to be image3.jpg, image4.jpg...etc.
+
+Go to models/research/object_detection and open jupyter notebook. \
+Make some edits to change paths, etc. \
+In the Variables section, change:
+     # What model to download.
+     MODEL_NAME = 'xxx_inference_graph'
+
+     # Path to frozen detection graph. This is the actual model that is used for the object detection.
+     PATH_TO_CKPT = MODEL_NAME + '/frozen_inference_graph.pb'
+
+     # List of the strings that is used to add correct label for each box.
+     PATH_TO_LABELS = os.path.join('training', 'xxx_label_map.pbtxt')
+
+     NUM_CLASSES = 1
+In the Detection section, change:
+     TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, 'image{}.jpg'.format(i)) for i in range(3, 8) ] \
+Range should be however many pictures you put.
+
+Run all object_detection_tutorial.ipynb!!!
+
+
 References:
 https://pythonprogramming.net/introduction-use-tensorflow-object-detection-api-tutorial/
 https://github.com/tzutalin/labelImg
+https://stackoverflow.com/questions/9166400/convert-rgba-png-to-rgb-with-pil
