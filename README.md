@@ -11,8 +11,8 @@ $ pip install matplotlib
 
 Officail Installation Site: https://www.tensorflow.org/install/install_mac#the_url_of_the_tensorflow_python_package \
 Installing Tensorflow with Anaconda:\
-$ conda create -n tensorflow pip python=2.7 #or python=3.3, etc. /
-$source activate tensorflow /
+$ conda create -n tensorflow pip python=2.7 #or python=3.3, etc. \
+$source activate tensorflow \
 $ pip install --ignore-installed --upgrade  https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.5.0-py2-none-any.whl 
 
 $source deactivate #to deactivate virtual env
