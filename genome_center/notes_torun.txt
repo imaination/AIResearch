@@ -1,0 +1,12 @@
+srun python my_code.py \
+or \ 
+Run multiple sruns by, \
+sbatch python my_code.py \ 
+
+Extensions: \
+-n  # number of CPU \
+--mem # amount of memory (5GB = 5,000) \
+-t 336:00:00 # hr:min:sec \
+
+Ex:\
+srun -t 2:00:00 -n 1 --mem 5000
