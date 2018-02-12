@@ -22,7 +22,7 @@ Install the TensorFlow model through git: \
 $ git clone https://github.com/tensorflow/models.git
 
 Check to see if you have protoc. \
-$protoc --version:
+$protoc --version
 
 Run below commands in the directory, models/research: \
 $protoc object_detection/protos/*.proto --python_out=. \
@@ -144,7 +144,18 @@ Range should be however many pictures you put.
 Run all object_detection_tutorial.ipynb!!!
 
 
+
+
+Additional Info:
+To acquire data with correct format, best to use labelimg.
+$ git clone https://github.com/tzutalin/labelImg.git \
+$ brew install qt  # will install qt-5.x.x \
+$ brew install libxml2 \
+$ make qt5py3 \
+$ python labelImg.py \
+$ python  labelImg.py [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
+
 References:
-https://pythonprogramming.net/introduction-use-tensorflow-object-detection-api-tutorial/
-https://github.com/tzutalin/labelImg
+https://pythonprogramming.net/introduction-use-tensorflow-object-detection-api-tutorial/ \
+https://github.com/tzutalin/labelImg \
 https://stackoverflow.com/questions/9166400/convert-rgba-png-to-rgb-with-pil
