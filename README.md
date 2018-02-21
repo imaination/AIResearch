@@ -56,9 +56,13 @@ Make a label map in the directory, models/research/object_detection/data/ \
 Make a create_monkey_tf_record.py in the directory, models/research/object_detection/dataset_tools/ \
 Follow the sample code found in models/research/object_detection/g3doc/using_your_own_dataset.md 
 
+$python create_labels.py
+
 After creating create_monkey_tf_record.py file, and running it, there should be a train.record and test.record under \research/object_detection/data/ file. \
-Run the file (create_monkey_tf_record.py) by, \
-$ python create_monkey_tf_record.py 
+Run the file (generate_tf_record.py) by, \
+$python generate_tfrecord.py --csv_input=data/train_labels.csv --output_path=data/train.record \
+$python generate_tfrecord.py --csv_input=data/test_labels.csv --output_path=data/test.record
+
 
 Step 5. Using a pre-trained model (transfer learning)
 
