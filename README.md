@@ -98,7 +98,7 @@ added files are: \
     5. ssd_mobilenet_v1_pets.config [file] (training/)
 
 From models/object_detection, run (train_dir is where all the output will go) \
-$ python train.py --logtostderr --train_dir=training/ --pipline_config_path=training/ssd_mobilenet_v1_pets.config
+$ python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/ssd_mobilenet_v1_pets.config
 
 To check learning rate using TensorBoard: \
 From models/object_detection: \
