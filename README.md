@@ -4,6 +4,8 @@ Object detection using TensorFlow API
 
 STEP 1. Installation (after installation of python 2.7)
 
+(can also install by pip install -r requirements.txt)
+
 $ pip install pillow \
 $ pip install lxml \
 $ pip install jupyter \
